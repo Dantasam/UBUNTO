@@ -1,0 +1,40 @@
+
+-Comece acessando a máquina virtual no VitualBox;
+- sudo é uma função do administrador
+- Atualizar as informações no terminal com o comando:
+ sudo apt-get update
+- Em seguida baixar o Apache no terminal com o comando:
+ sudo apt-get install apache2
+- Confirmar o ip da máquina com o comando: (é importante para pesquisar a página)
+  ip a
+- Utilizar o cd para acessar a pasta
+ cd /var/www/html/
+- É interessante sempre verificar as informações que estão na pasta, para isso, utilizar o comando de lista: 
+ ls
+- Para remover os dados que estão listados, usar o comando (sudo rm -rf) com o nome da respectiva pasta ao lado:
+ sudo rm -rf index.html
+- Para editar as informações, usar o comando (sudo nano ) com o nome da pasta ao lado:
+sudo nano index.html
+
+-Edicação do GMU nano: 
+<html>
+<head><title>título</title>
+</head>
+<body>
+<center>
+<h1> Minha primeira página HTML</h1>
+</body>
+</html>
+-Após finalizar a edição utilizar em sequência o botão ctrl+o para salvar o registro e ctrl+x para sair do editor e voltar ao início do terminal
+- Para facilitar a vida, integrar o terminal com o git e baixa-lo no mesmo com o comando: sudo apt get install git
+e copiar uma página que já existe com o comando git clone mais o código que está no github-code-http e colar  no terminal: 
+ sudo git clone https://github.com/nome-da-paste/site-simple-com-html-e-css.git
+
+- Usar o comando cd para acessar a pasta e verificar quais os arquivos agregados:
+cd site-simples-com-html-e-css-/
+-Em seguida listar os arquivos que estão na nova pasta (var/www/html/site-simples-com-html-e-css)
+- Usar o comando cd.. para sair de uma pasta e voltar para a anterior(var/www/html).
+- Remover o arquivo  index.html da pasta com o comando: sudo rm -rf index.html
+- Para copiar um arquivo para a pasta usar o comando: sudo cp site-simples-com-html-e-css-/nome_do_novo_arquivo_adicionado
+tipo: sudo cp site-simples-com-html-e-css-/styles.ccs 
+sudo cp site-simples-com-html-e-css-/background.jpg
