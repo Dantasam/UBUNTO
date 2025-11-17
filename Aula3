@@ -1,0 +1,63 @@
+#script para automatizar a tarefa
+1.criar um arquivo comum
+ sudo nano script.sh
+2.declarar que o arquivo é um script
+ #! /bin/bash
+3.verificar se tem o arquivo ja instalado
+ if[ ! -x /etc/init.d/apache2]; then
+ echo "Apache nao encontrado.Iniciando a instalacao.."
+4.atualizar o terminal 
+ sudo apt-get update
+ sudp apt-get install apache2 -y
+ else
+ echo"Apache ja esta instalado"
+ fim
+
+5.o diretorio serve para salvar os arquivos
+ sudo mkdir -p
+6.criar o diretorio
+ sudo mkdir -p /var/www/aluno/public_html
+7.acessar o diretorio
+ cd /var/www/aluno/public_html
+8.copiar o link do git
+ sudo git clone
+9.copiar os arquivos de forma recursiva
+ sudo cp -r site-simples-com-html-e-css-/*
+10.remover os arquivos copiados para nao ficar redundante
+ audo rm -rf site-simples-com-html-e-css-/
+11.acessar o arquivo
+ cd /etc/apache2/sites-available/
+12.as informacoes contidas entre o Eof ficam dentro do aluno.conf
+ sudo tee aluno.conf <<EoF
+ <VitualHost*:80>
+ ctrl+x para salvar e sair
+13.acessar o arquivo
+ cd /etc/apache2/sites-available
+14.ver o que tem dentro do arquivo
+ls
+15.ver o que tem e copiar
+ cat site1.conf
+16.colar os arquivos no arquivo que estava sendo criado
+ cd /home/nome
+--repete o 14--
+17.editar, colar entre o EoF e apagar os comentarios e fecha o EoF
+ sudo nano script.sh
+ admin@aluno
+ ServeName aluno
+ ServeAlias www.aluno
+ DocRoot site1 vira aluno
+
+18.habilitar o site, os arquivos de configuracao
+ sudo a2ensite aluno.conf
+19.inserir informacoes mais facil
+ sudo echo"127.0.0.1 aluno" | sudo tee -a /etc/hosts
+20.reiniciar e salvar
+ sudo /etc/init.d/apache2 restart
+21.habilitar a escrita
+ sudo chmod +x script.sh
+ ls 
+22.verificar se foi instalado
+ ./script.sh
+
+
+
