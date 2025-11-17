@@ -1,0 +1,57 @@
+#criar dois servidores apache com funcoes distintas
+
+1.atualizar repositorio
+ sudo apt-get update
+2.instalar o apache
+ sudo apt-get install apache2
+3.ver se funciona
+ sudo /etc/init.d/apache2 status
+4.acessar o repositorio
+ cd /var/www
+5.listar
+ ls
+7.criar pastas dentro do diretorio
+ sudo mkdir -p ufrn/piblic_html
+8.acessar o diretorio
+ cd ufrn/
+9.listar
+ ls
+10.acessar o diretorio
+ cd public_html/
+11.listar
+ls
+12.sudo touch index.html
+13.ls
+14.editar
+ sudo nano index.html
+   <html>
+   <head><Title>Ola seja bem vindo</title>
+   </head>
+   <body>
+   <center>
+   <h1>Seja bem vindo</h1>
+   </body>
+   </html>
+salvar e sair 
+
+15.para ver o texto editado
+ cat index.html
+16.acessar diretorio
+ cd /etc/apache2/sites-available/
+17.ls
+18.para criar uma copia
+ sudo cp 000-default.conf Ufrn
+19.editar(serveadmin,name e adicionar)
+ sudo nano Ufrn.conf
+  ServeAlias www.ufrn.com
+salvar e sair
+20.cat Ufrn.conf
+21.sudo /etc/init.d/apache2 restart
+22. habilitar
+ sudo a2ensite Ufrn.conf
+23.para desabilitar
+ sudo a2dissite 000-default.conf
+24.sudo /etc/init.d/apache2 restar
+25.conectar as comfiguracoes antigas
+26.desliga a maquina para colocar em rede interna de nat
+
