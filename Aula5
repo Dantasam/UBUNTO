@@ -1,0 +1,15 @@
+#webmin
+1.buscar no servidor wget
+ https://www.webmin.com/download/deb/webmin-current.deb
+2.descompactar
+ sudo dpkg -i webmin-current-deb
+3.para corrigir erros
+ sudo apt -f install
+4.deve-se voltar as comfiguracoes antigas 
+ clica na engrenagem-conectado a cabeada
+ configuraco de rede cabeada
+ ipv4 manual
+ 192.168.0.10 255.255.255.0 192.168.0.1
+ dns nao e automatico
+ip a 
+ 
