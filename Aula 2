@@ -1,2 +1,35 @@
+1.alguns comandos
+ -p subpasta
+ -R recursiva 
+ cd acessar diretorio
+ touch index.html para criar o arquivo
+ nano index.html para editar o arquivo
+ cat index.html para mostrar o que foi feito
+2.onde estao os diretorios
+ cd/var/www
+3.nomear o diretorio e criar uma pasta 
+  sudo mkdir -p site1/public_html
+4.permitir acesso a pasta
+  sudo chown -R $USER:$USER /var/www/site1/public_html
+5.configurar os arquivos
+ cd /etc/apache2/sites-available
+ #copia o endereco do arquivo do diretorio, um para cada site + quem sao os arquivos
+6.permissao de super usuario
+ sudo cp nome.conf arquivo.conf
+7.editar o arquivo padrao
+ sudo nano nome.conf
+ #alterar o ServeAdmin para admin@site1
+ #criar o ServeName que vai ser o site1
+ #apelido ServeAlias que vai ser www.site1
+ #DocumentRoot acessa o diretorio
+   /var/www/site1/public_html/
+8.ativas as configuracoes antes de finalizar
+ sudo a2ensite site1.conf
+9.desabilitar as configuracoes padroes
+ sudo a2dissite nome.conf
+10.resetar a pasta
+ sudo systemctl restart apache2
+11.editar o arquivo de host da maquina local
+ sudo nano/etc/hosts
+ #no lugar do localhost fica site1 e acrescenta para site2
 
-bunu
