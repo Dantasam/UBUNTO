@@ -22,7 +22,7 @@
 ls
 12.sudo touch index.html
 13.ls
-14.editar
+14.editar com tag padrao
  sudo nano index.html
    <html>
    <head><Title>Ola seja bem vindo</title>
@@ -40,18 +40,58 @@ salvar e sair
  cd /etc/apache2/sites-available/
 17.ls
 18.para criar uma copia
- sudo cp 000-default.conf Ufrn
-19.editar(serveadmin,name e adicionar)
- sudo nano Ufrn.conf
-  ServeAlias www.ufrn.com
-salvar e sair
-20.cat Ufrn.conf
-21.sudo /etc/init.d/apache2 restart
-22. habilitar
+ sudo cp 000-default.conf Ufrn.conf
+19.ls
+20.sudo nano Ufrn.conf
+ adicionar o Ufrn/public_html
+21.verificar se deu certo
+ cat Ufrn.conf
+22.reiniciar o sistema para verificar se deu certo
+ sudo /etc/init.d/apache2 restart
+23.para habilitar 
  sudo a2ensite Ufrn.conf
-23.para desabilitar
+24.para desabilitar
  sudo a2dissite 000-default.conf
-24.sudo /etc/init.d/apache2 restar
-25.conectar as comfiguracoes antigas
+25.reiniciar 
+ sudo /etc/init.d/apache2 restart
+testar o navegador,host no dns
+26.editar os hosts
+ sudo nano /etc/hosts
+ pode inserir 127.0.0.1 Ufrn.com(mas nao precisa)
+27. reiniciar
+testar o navegador
+28.configurar a rede cabeada:ipva-manual-192.160.0.11-255.255.255.0-192.168.0.1
+dns é manual,adicionar o ip da outra maquina 192.168.0.10
+28.desativar\ativar a rede
+29.desligar\ligar a maquina na rede interna
+30.voltar na maquina1
+31.criar arquivos dentro de diretorio
+ cd /etc/bind/
+32.ls
+33.criar uma copia do db.ifrn.com
+ sudo cp db.ifrn.com db.Ufrn.com
+34.editar o novo arquivo
+ sudo nano db.ifrn.com e editar tudo do if para Ufrn
+ salvar e sair
+35.editar o dns
+ sudo nano named.conf.local
+ };
+   //Zona Direta Ufrn
+    zone "Ufrn.com"{
+    type master;
+    File "/etc/bind/db.Ufrn.com";
+};
+salvar e sair
+36.reiniciar
+ sudo /etc/init.d/named restart
+37.editar o arquivo reverso10
+ sudo nano db.reverso10
+ adicionar nova linha 11 In ptr Ufrn.com
+ salvar e sair
+37. reiniciar
+ sudo /etc/init.d/named restart
+desligar e colocar na rede interna
+reiniciar e pingar
+
 26.desliga a maquina para colocar em rede interna de nat
 
