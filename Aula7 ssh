@@ -1,0 +1,25 @@
+#no virtualBox
+1.configurar e alterar a rede para Nat
+2.redirecionamento
+ nome:ssh
+ protocolo:tcp
+ porta_do_hospedeiro:222
+ ip_do_convidado:10.0.2.15
+ porta_do_convidado:22
+
+#no prompt
+1. verificar se o ip local foi configurado
+ ip a 
+2.verificar se existe DNS
+  /etc/init.d/named status
+ /etc/init.d/apache2 status
+3.configuracoes de rede
+ ipv4-automatico
+4.pingar
+5.atualizar o diretorio
+ sudo apt-get update
+6.instalar o ssh
+ sudo apt-get install openssh-server
+7.ip a 
+8.voltar para as configuraçoes antigas
+192.168.0.10-255.255.255.0-192.168.0.1-dns manual
