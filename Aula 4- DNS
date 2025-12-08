@@ -1,0 +1,51 @@
+1. No PROMPT:
+sudo nano cd /etc/hosts (apagar as entradas e as duas últimas linhas de saída que foi inserido)
+salvar e fechar
+2. sudo apt-get update (para atualizar)
+3. sudo apt-get install bind9(para instalar o servidor)
+4. sudo /etc/init.d/name status (para verificar se está rodando)
+
+fixar o ip-conf-ipv4
+cd /etc/bind(para acessar a pasta)
+ls (listar o que tem  na pasta)
+sudo cp named.conf.local named.conf.localOld( para renomear e fazer um backup)
+ls
+sudo nano named.conf local(para editar)
+  /// Zona direta
+  zone "ifrn.com"{
+  type master;
+  file "/etc/bind/db.ifrn.com";
+};
+  /// Zona reversa
+  zone "192.168.0.-in.addr.arpa"{
+  type master;
+  file "/etc/bind/db.reverso10";
+};
+salvar e fechar
+
+sudo cp db.local db.ifrn.com(editar arquivo local e fazer uma copia)
+ls
+sudo cp db.127 db.reverso10
+sudo nano db.ifrn.com(eidtar trocando o localhost por ifrn.com...)
+na linha acima do ipv6,apagar e adicionar 192.168.0.10 e apagar o ipv6
+no reverso too e adicionar o 10 no inicio
+
+sudo nano /etc/resolv.conf(adicionar o nameserver 192.168.0.10)
+salvar e fechar
+
+sudo /etc/init.d/named restart(para reiniciar o sistema)
+nslookup ifrn.com(para verificar o servidor)
+host ifrn.com
+
+testar no navegador buscando o site(para conseguir acessar no navegador o site1 e site2, já criados,deve-se inclui-los pelo editor(nano)
+
+sudo nano db.ifrn.com (para o site1: IN A 192.168.0.10 e para o site2: IN A 192.168.0.10)
+
+cd /etc/apache2/sites-available/ (editar o arquivo d0.conf para indicar o seu domínio do apache)
+ls
+sudo nano site1.conf(editar o adimin@site1.ifrn.com salvar e fazer oara o site2)
+sudo /etc/init.d/apache2 restart
+sudo /etc/init.d/named restart
+/etc/init.d/named status
+sudo a2ensite site1.conf (verificar se está habilitado no site1 e no site2)
+systemctl.reload apache 2
